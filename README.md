@@ -40,6 +40,8 @@ uvicorn api.app:app --reload
 ```
 To access the API interface (Swagger UI): `http://localhost:8000/docs`
 
+![📸 Successful Local Prediction Example:](image.png) 
+
 ### 2. Using Docker
 ```bash
 # Build the image
