@@ -1,26 +1,26 @@
 # 🚀 End-to-End MLOps Pipeline: House Price Prediction
 
-Bu proje, bir makine öğrenmesi modelinin eğitilmesinden, modern yazılım mimarileriyle (**FastAPI**, **Docker**, **Kubernetes**) servis edilmesine kadar tüm süreçleri kapsayan uçtan uca bir **MLOps** çalışmasıdır.
+This project is a comprehensive **MLOps** workflow covering everything from training a machine learning model to serving it using modern software architectures like **FastAPI**, **Docker**, and **Kubernetes**.
 
-## 🎯 Projenin Amacı
-Ev fiyatlarını tahmin eden bir modelin sadece bir notebook dosyası olarak kalmayıp, ölçeklenebilir bir mikroservis mimarisiyle nasıl canlıya alınabileceğini (deployment) simüle etmektir.
-
----
-
-## 🏗 Mimari Yapı ve Akış
-
-Proje dört ana sütun üzerine inşa edilmiştir:
-
-1.  **Model Training (`src/`):** Scikit-learn kullanılarak regresyon modeli eğitildi ve performans metrikleri analiz edildi.
-2.  **API Layer (`api/`):** Eğitilen model, yüksek performanslı **FastAPI** kullanılarak bir web servisine dönüştürüldü.
-3.  **Containerization (`Dockerfile`):** Uygulama tüm bağımlılıklarıyla birlikte **Docker** imajı haline getirildi.
-4.  **Orchestration (`k8s/`):** Hazırlanan imaj, **Kubernetes** üzerinde (Deployment ve Service objeleriyle) ayağa kaldırıldı.
+## 🎯 Project Objective
+The goal is to demonstrate how a house price prediction model can be transitioned from a simple notebook into a scalable, production-ready microservice architecture.
 
 ---
 
-## 🛠 Kullanılan Teknolojiler
+## 🏗 Architecture & Workflow
 
-*   **Dil:** Python 3.9+
+The project is built on four main pillars:
+
+1. **Model Training (`src/`):** A regression model was trained using Scikit-learn, with performance metrics analyzed and validated.
+2. **API Layer (`api/`):** The trained model was wrapped into a web service using the high-performance **FastAPI** framework.
+3. **Containerization (`Dockerfile`):** The application and its dependencies were packaged into a **Docker** image.
+4. **Orchestration (`k8s/`):** The Docker image was deployed on **Kubernetes** using Deployment and Service objects for scalability.
+
+---
+
+## 🛠 Tech Stack
+
+*   **Language:** Python 3.9+
 *   **ML:** Scikit-learn, Pandas, Joblib
 *   **API:** FastAPI, Uvicorn
 *   **DevOps:** Docker, Kubernetes (K8s)
@@ -28,37 +28,44 @@ Proje dört ana sütun üzerine inşa edilmiştir:
 
 ---
 
-## 🚀 Nasıl Çalıştırılır?
+## 🚀 How to Run
 
-### 1. Yerel Ortamda (Local)
+### 1. Local Environment
 ```bash
-# Bağımlılıkları kurun
+# Install dependencies
 pip install -r requirements.txt
 
-# API'yi başlatın
+# Start the API
 uvicorn api.app:app --reload
-API arayüzüne (Swagger UI) erişmek için: http://localhost:8000/docs
 ```
+To access the API interface (Swagger UI): `http://localhost:8000/docs`
 
-### 2. Docker İle
+### 2. Using Docker
 ```bash
-# İmajı oluşturun
+# Build the image
 docker build -t mlops-house-app .
 
-# Konteynırı çalıştırın
+# Run the container
 docker run -p 8000:8000 mlops-house-app
 ```
 
-### 3. Kubernetes Üzerinde
+### 3. On Kubernetes
 ```bash
-# K8s konfigürasyonlarını uygulayın
+# Apply K8s configurations
 kubectl apply -f k8s/
 
-# Servis durumunu kontrol edin
+# Check service status
 kubectl get services
-📦 Model Yönetimi (Git LFS)
-Bu projede kullanılan .pkl model dosyası GitHub limitlerini aştığı için Git LFS (Large File Storage) kullanılarak versiyonlanmıştır. Repoyu klonladığınızda modelin düzgün inmesi için Git LFS'nin sisteminizde kurulu olması gerekir.
 ```
 
-✒️ Yazar
-Nisa Beyza Nar - LinkedIn Profilime Buradan Ulaşabilirsin: https://www.linkedin.com/in/nisabeyzanar/ 
+---
+
+## 📦 Model Management (Git LFS)
+
+The `.pkl` model file used in this project exceeds GitHub's size limits, therefore it is managed using **Git LFS (Large File Storage)**. Please ensure Git LFS is installed on your system when cloning this repository to ensure the model file is downloaded correctly.
+
+---
+
+## ✒️ Author
+
+**Nisa Beyza Nar** - [Connect on LinkedIn](https://www.linkedin.com/in/nisabeyzanar/)
