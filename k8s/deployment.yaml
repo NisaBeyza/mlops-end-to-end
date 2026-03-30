@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlops-api-deployment
+spec:
+  replicas: 2  # Uygulamamızdan 2 kopya çalışacak, biri çökerse diğeri isteklere cevap verecek
+  selector:
+    matchLabels:
+      app: mlops-api
+  template:
+    metadata:
+      labels:
+        app: mlops-api
+    spec:
+      containers:
+      - name: mlops-api-container
+        image: nisabeyza/mlops-api:v1
+        
+        ports:
+        - containerPort: 8000
+        

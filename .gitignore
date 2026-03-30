@@ -1,0 +1,14 @@
+# Python önbellek dosyaları
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Sanal ortam
+venv/
+env/
+.venv/
+
+# Çevresel değişkenler (Gizli şifreler vs. varsa)
+.env
+# MLflow deney kayıtları
+mlruns/
